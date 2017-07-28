@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "itfmod:blocks/foxy_block"
-    }
-}
