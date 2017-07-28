@@ -29,6 +29,7 @@ out
 *.iws
 *.iml
 .idea
+classes
 
 #Minecraft
 run
