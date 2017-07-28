@@ -1,6 +1,0 @@
-{
-    "parent": "item/handheld",
-    "textures": {
-        "layer0": "itfmod:items/foxy_pickaxe"
-    }
-}
