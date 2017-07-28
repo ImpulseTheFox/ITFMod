@@ -1,0 +1,14 @@
+item.itfmod:foxy_axe.name=Foxy Axe
+item.itfmod:foxy_boots.name=Foxy Boots
+item.itfmod:foxy_chestplate.name=Foxy Chestplate
+item.itfmod:foxy_helmet.name=Foxy Helmet
+item.itfmod:foxy_hoe.name=Foxy Hoe
+item.itfmod:foxy_ingot.name=Foxy Ingot
+item.itfmod:foxy_leggings=Foxy Leggings
+item.itfmod:foxy_nugget.name=Foxy Nugget
+item.itfmod:foxy_pickaxe.name=Foxy Pickaxe
+item.itfmod:foxy_shovel.name=Foxy Shovel
+item.itfmod:foxy_sword.name=Foxy Sword
+tile.itfmod:foxy_block.name=Foxy Block
+tile.itfmod:foxy_ore.name=Foxy Ore
+itemGroup.itfmod=ITF Mod

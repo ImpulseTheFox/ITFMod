@@ -1,0 +1,3 @@
+# ITFMod
+
+A mod for Minecraft 1.12 that adds some foxy ores, tools, armor and more...
