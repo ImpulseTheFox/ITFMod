@@ -1,16 +1,18 @@
-package itfmod.repo;
+package itfmod.ref;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import itfmod.SimpleRegistry;
-import itfmod.itf.ITFBlock;
 import itfmod.itf.block.BlockFoxyAltar;
 import itfmod.itf.block.BlockFoxyAltarDisabled;
 import itfmod.itf.block.BlockFoxyBlock;
 import itfmod.itf.block.BlockFoxyOre;
 import net.minecraft.block.Block;
 
+/**
+ * Class to store blocks
+ */
 public class ITFBlocks
 {
 	public static final Block FOXY_ORE = new BlockFoxyOre();

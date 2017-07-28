@@ -5,8 +5,8 @@ import java.util.Random;
 import java.util.Set;
 
 import itfmod.itf.ITFStructure;
-import itfmod.repo.ITFBlocks;
-import itfmod.repo.ITFStructures;
+import itfmod.ref.ITFBlocks;
+import itfmod.ref.ITFStructures;
 import itfmod.util.KeyValue;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -17,6 +17,9 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
+/**
+ * A custom world generator
+ */
 public class ITFWorldGen implements IWorldGenerator
 {
 	@Override
@@ -34,6 +37,19 @@ public class ITFWorldGen implements IWorldGenerator
 		}
 	}
 	
+	/**
+	 * Generates ore
+	 *
+	 * @param ore ore to be generated
+	 * @param world world to be generated in
+	 * @param random random
+	 * @param x X pos
+	 * @param z Z pos
+	 * @param minY minimum Y pos
+	 * @param maxY maximum Y pos
+	 * @param size size of lode
+	 * @param chances chances
+	 */
 	private void generateOre(IBlockState ore, World world, Random random, int x, int z, int minY, int maxY, int size, int chances)
 	{
 		int deltaY = maxY - minY;
@@ -47,17 +63,37 @@ public class ITFWorldGen implements IWorldGenerator
 		}
 	}
 	
+	/**
+	 * Generates a chunk of the overworld
+	 *
+	 * @param random random
+	 * @param chunkX chunk X pos
+	 * @param chunkZ chunk Z pos
+	 * @param world world of chunk
+	 * @param chunkGenerator the chunkGenerator
+	 * @param chunkProvider the chunkProvider
+	 */
 	private void generateOverworld(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
 		// Generate FOXY_ORE
 		this.generateOre(ITFBlocks.FOXY_ORE.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 12, 44, 4 + random.nextInt(5), 4);
 		// Generate Structure
-		this.generateStructure(ITFStructures.ENHANCEMENT_ALTAR, world, random, chunkX * 16, chunkZ * 16);
+		this.generateStructure(ITFStructures.ENHANCEMENT_ALTAR, world, random, chunkX * 16, chunkZ * 16, 300);
 	}
-
-	private void generateStructure(ITFStructure structure, World world, Random random, int x, int z)
+	
+	/**
+	 * Generates a {@link ITFStructure structure}
+	 *
+	 * @param structure structure to be generated
+	 * @param world world to be generated in
+	 * @param random random
+	 * @param x X pos
+	 * @param z Z pos
+	 * @param chanceReduction higher chanceReduction reduces the probability (1 is almost every chunk, 10 is almost every 10 chunks; flatter areas have a higher probability of spawning the structure).
+	 */
+	private void generateStructure(ITFStructure structure, World world, Random random, int x, int z, int chanceReduction)
 	{
-		if (!(random.nextInt(250) == 0)) //Reduce chances
+		if (!(random.nextInt(chanceReduction) == 0)) //Reduce chances
 			return;
 		
 		int randomX = x + random.nextInt(16);
@@ -66,9 +102,9 @@ public class ITFWorldGen implements IWorldGenerator
 		
 		try
 		{
-			topY = fetchTopBlock(world, 48, randomX, randomZ);
+			topY = fetchTopLevel(world, 48, randomX, randomZ);
 		}
-		catch (TopBelowMinimunException e)
+		catch (ReachedBadLevelException e)
 		{
 			return;
 		}
@@ -89,10 +125,20 @@ public class ITFWorldGen implements IWorldGenerator
 		}
 	}
 	
+	/**
+	 * Actually spawns a {@link ITFStructure structure}
+	 *
+	 * @param world world to be generated in
+	 * @param pos position to be generated at
+	 * @param structure structure to be generated
+	 * @param ignoreObstacles ignore {@link #isSuitableForBuilding(Material) obstacles} and replace them, rather than throwing an exception
+	 * @throws ObstacledStructureException if the structure would be inside {@link #isSuitableForBuilding(Material) blocks suitable for building} OR if the structure wouldn't have a {@link #isSuitableForBuilding(Material) suitable block for building} beneath it at some point
+	 */
 	private void buildStructure(World world, BlockPos pos, ITFStructure structure, boolean ignoreObstacles) throws ObstacledStructureException
 	{
 		IBlockState[][][] blockStates = structure.getBlockStates();
 		BlockPos currentPos;
+		//using a buffer so it's possible to check if the method would throw a ObstacledStructureException at some point before placing any block
 		Set<KeyValue<BlockPos, IBlockState>> buildBuffer = new HashSet<>();
 		
 		for (int x = 0; x < blockStates[0][0].length; x++)
@@ -118,13 +164,23 @@ public class ITFWorldGen implements IWorldGenerator
 			world.setBlockState(kv.getKey(), kv.getValue());
 		}
 	}
-
-	private int fetchTopBlock(World world, int min, int x, int z) throws TopBelowMinimunException
+	
+	/**
+	 * Fetches the position (Y) of the top non-{@link #isSuitableForBuilding(Material) suitableForBuilding} block of a X/Z position.
+	 *
+	 * @param world world to be fetching from
+	 * @param badLevel if Y level reaches or falls below badLevel, a {@link ReachedBadLevelException} will be thrown.
+	 * @param x X pos
+	 * @param z Z pos
+	 * @return the top level (Y)
+	 * @throws ReachedBadLevelException
+	 */
+	private int fetchTopLevel(World world, int badLevel, int x, int z) throws ReachedBadLevelException
 	{
 		IBlockState belowBlock;
 		int y;
 		
-		for (y = world.getHeight(x, z); y >= min; y--)
+		for (y = world.getHeight(x, z); y >= badLevel; y--)
 		{
 			belowBlock = world.getBlockState(new BlockPos(x, y - 1, z));
 			
@@ -136,11 +192,17 @@ public class ITFWorldGen implements IWorldGenerator
 			}
 		}
 		
-		if (y == min) throw new TopBelowMinimunException();
+		if (y <= badLevel) throw new ReachedBadLevelException();
 		
 		return y;
 	}
 	
+	/**
+	 * Defines a material as suitable for building or not.
+	 *
+	 * @param mat material
+	 * @return if the material is suitable for building
+	 */
 	private boolean isSuitableForBuilding(Material mat)
 	{
 		return mat == Material.AIR  || mat == Material.CACTUS || mat == Material.LAVA || mat == Material.WATER || mat == Material.LEAVES

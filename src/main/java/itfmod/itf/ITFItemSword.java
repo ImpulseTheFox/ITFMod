@@ -1,11 +1,21 @@
 package itfmod.itf;
 
 import itfmod.ITFMod;
-import itfmod.repo.ITFCreativeTabs;
+import itfmod.itf.creativetab.CreativeTabITFMod;
+import itfmod.ref.ITFCreativeTabs;
 import net.minecraft.item.ItemSword;
 
+/**
+ * Represents a sword
+ */
 public abstract class ITFItemSword extends ItemSword implements OrderedItem
 {
+	/**
+	 * Creates a new sword and sets it to the {@link CreativeTabITFMod}
+	 *
+	 * @param name name of the sword
+	 * @param material material of the sword
+	 */
 	public ITFItemSword(String name, ToolMaterial material)
 	{
 		super(material);

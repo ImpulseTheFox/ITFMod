@@ -1,12 +1,22 @@
 package itfmod.itf;
 
 import itfmod.ITFMod;
-import itfmod.repo.ITFCreativeTabs;
+import itfmod.itf.creativetab.CreativeTabITFMod;
+import itfmod.ref.ITFCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
+/**
+ * Represents a block
+ */
 public abstract class ITFBlock extends Block implements OrderedItem
 {
+	/**
+	 * Creates a new block and sets it to the {@link CreativeTabITFMod}
+	 *
+	 * @param name name of the block
+	 * @param materialIn material of the block
+	 */
 	public ITFBlock(String name, Material materialIn)
 	{
 		super(materialIn);

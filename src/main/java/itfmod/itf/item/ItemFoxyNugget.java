@@ -1,9 +1,8 @@
 package itfmod.itf.item;
 
 import itfmod.itf.ITFItem;
-import itfmod.repo.ITFCreativeTabs;
 
-import static itfmod.repo.Names.NAME_ITEM_FOXY_NUGGET;
+import static itfmod.ref.Names.NAME_ITEM_FOXY_NUGGET;
 
 public class ItemFoxyNugget extends ITFItem
 {

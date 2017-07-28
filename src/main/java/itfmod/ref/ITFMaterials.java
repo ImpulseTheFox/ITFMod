@@ -1,4 +1,4 @@
-package itfmod.repo;
+package itfmod.ref;
 
 import itfmod.ITFMod;
 import net.minecraft.init.SoundEvents;
@@ -6,6 +6,12 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
 
+/**
+ * Class to store Materials
+ *
+ * @see ToolMaterial
+ * @see ItemArmor.ArmorMaterial
+ */
 public class ITFMaterials
 {
 	public static final ToolMaterial FOXY_MATERIAL = EnumHelper.addToolMaterial("FOXY_MATERIAL", 2, 500, 6.5F, 1.5F, 17);

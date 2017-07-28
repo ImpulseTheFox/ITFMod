@@ -1,15 +1,20 @@
-package itfmod.repo;
+package itfmod;
 
+import itfmod.ref.ITFBlocks;
+import itfmod.ref.ITFItems;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ITFRecipes
+/**
+ * Class registering recipes
+ */
+public class Recipes
 {
 	public static void registerRecipes()
 	{
-		ITFRecipes.registerShapedRecipes();
-		ITFRecipes.registerShapelessRecipes();
-		ITFRecipes.registerSmeltingRecipes();
+		Recipes.registerShapedRecipes();
+		Recipes.registerShapelessRecipes();
+		Recipes.registerSmeltingRecipes();
 	}
 	
 	private static void registerShapedRecipes()

@@ -1,5 +1,11 @@
 package itfmod.util;
 
+/**
+ * A class also known as Pair. It serves the purpose of storing two cohesive objects of different (or the same) type(s).
+ *
+ * @param <K> The Key
+ * @param <V> The Value
+ */
 public class KeyValue<K, V>
 {
 	private K key;

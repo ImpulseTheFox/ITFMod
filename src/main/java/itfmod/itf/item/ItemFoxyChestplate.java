@@ -2,14 +2,16 @@ package itfmod.itf.item;
 
 import itfmod.itf.Enhanceable;
 import itfmod.itf.ITFItemArmor;
-import itfmod.repo.ITFCreativeTabs;
-import itfmod.repo.ITFItems;
-import itfmod.repo.ITFMaterials;
+import itfmod.ref.ITFItems;
+import itfmod.ref.ITFMaterials;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 
-import static itfmod.repo.Names.NAME_ITEM_FOXY_CHESTPLATE;
+import static itfmod.ref.Names.NAME_ITEM_FOXY_CHESTPLATE;
 
+/**
+ * Enhanced version: {@link ItemFoxyChestplateEnhanced}
+ */
 public class ItemFoxyChestplate extends ITFItemArmor implements Enhanceable
 {
 	public ItemFoxyChestplate()

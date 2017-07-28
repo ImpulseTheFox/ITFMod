@@ -2,29 +2,26 @@ package itfmod.event;
 
 import itfmod.ITFMod;
 import itfmod.itf.Enhanceable;
-import itfmod.itf.ITFBlock;
 import itfmod.itf.block.BlockFoxyAltar;
-import itfmod.repo.ITFBlocks;
-import itfmod.repo.ITFItems;
-import itfmod.repo.Names;
+import itfmod.ref.ITFBlocks;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+/**
+ * The event of enhancing an item
+ */
 public class EventEnhanceITFItem
 {
 	@SubscribeEvent
 	public void onItemToss(ItemTossEvent e)
 	{
-		//BlockPos pos = e.getEntity().getAir();
 		EntityItem ent = e.getEntityItem();
 		final int INTERVAL = 1000;
 		

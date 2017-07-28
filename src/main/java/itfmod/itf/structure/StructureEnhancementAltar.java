@@ -1,11 +1,14 @@
 package itfmod.itf.structure;
 
 import itfmod.itf.ITFStructure;
-import itfmod.repo.ITFBlocks;
+import itfmod.ref.ITFBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.Rotation;
 
+/**
+ * An enhancement altar structure which can be used to enhance items
+ */
 public class StructureEnhancementAltar extends ITFStructure
 {
 	private IBlockState[][][] blockStates = new IBlockState[3][1][3];

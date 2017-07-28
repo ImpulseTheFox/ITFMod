@@ -1,10 +1,9 @@
 package itfmod.itf.block;
 
 import itfmod.itf.ITFBlock;
-import itfmod.repo.ITFCreativeTabs;
 import net.minecraft.block.material.Material;
 
-import static itfmod.repo.Names.NAME_BLOCK_FOXY_BLOCK;
+import static itfmod.ref.Names.NAME_BLOCK_FOXY_BLOCK;
 
 public class BlockFoxyBlock extends ITFBlock
 {

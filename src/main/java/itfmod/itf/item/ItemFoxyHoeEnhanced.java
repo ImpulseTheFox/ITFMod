@@ -1,15 +1,14 @@
 package itfmod.itf.item;
 
-import itfmod.itf.Enhanceable;
 import itfmod.itf.ITFItemHoe;
-import itfmod.repo.ITFItems;
-import itfmod.repo.ITFMaterials;
-import net.minecraft.item.Item;
+import itfmod.ref.ITFMaterials;
 import net.minecraft.item.ItemStack;
 
-import static itfmod.repo.Names.NAME_ITEM_FOXY_HOE;
-import static itfmod.repo.Names.NAME_ITEM_FOXY_HOE_ENHANCED;
+import static itfmod.ref.Names.NAME_ITEM_FOXY_HOE_ENHANCED;
 
+/**
+ * Enhanced version of {@link ItemFoxyHoe}
+ */
 public class ItemFoxyHoeEnhanced extends ITFItemHoe
 {
 	public ItemFoxyHoeEnhanced()

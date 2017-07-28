@@ -1,5 +1,8 @@
-package itfmod.repo;
+package itfmod.ref;
 
+/**
+ * Class to store name constants
+ */
 public class Names
 {
 	public static final String NAME_BLOCK_FOXY_ALTAR = "foxy_altar";

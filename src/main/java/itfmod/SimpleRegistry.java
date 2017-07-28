@@ -14,10 +14,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
 /**
- * Class for simple registering of Items and Blocks. All Items and Blocks must
- * be registered in the preInit!
+ * Class for simple registering of Items and Blocks. All Items and Blocks must be registered in the preInit!
  * 
- * @author y7017
+ * @author ImpulseTheFox
  */
 public class SimpleRegistry
 {
@@ -32,7 +31,7 @@ public class SimpleRegistry
 			for (Block block : SimpleRegistry.blocks)
 			{
 				reg.register(block);
-				SimpleRegistry.registerItem(new ITFItemBlock(block));
+				SimpleRegistry.registerItem(new ITFItemBlock(block)); //Automatically create an ItemBlock and register it
 			}
 		}
 		

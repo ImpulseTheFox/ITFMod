@@ -3,8 +3,11 @@ package itfmod.itf.block;
 import itfmod.itf.ITFBlock;
 import net.minecraft.block.material.Material;
 
-import static itfmod.repo.Names.NAME_BLOCK_FOXY_ALTAR_DISABLED;
+import static itfmod.ref.Names.NAME_BLOCK_FOXY_ALTAR_DISABLED;
 
+/**
+ * Disabled version of {@link BlockFoxyAltar}
+ */
 public class BlockFoxyAltarDisabled extends ITFBlock
 {
 

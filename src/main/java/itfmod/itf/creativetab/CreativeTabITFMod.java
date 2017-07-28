@@ -6,6 +6,9 @@ import itfmod.itf.OrderedItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
+/**
+ * The Main CreativeTab for the ITFMod
+ */
 public class CreativeTabITFMod extends ITFCreativeTab
 {
 	public CreativeTabITFMod()

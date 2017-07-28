@@ -2,13 +2,15 @@ package itfmod.itf.item;
 
 import itfmod.itf.Enhanceable;
 import itfmod.itf.ITFItemShovel;
-import itfmod.repo.ITFCreativeTabs;
-import itfmod.repo.ITFItems;
-import itfmod.repo.ITFMaterials;
+import itfmod.ref.ITFItems;
+import itfmod.ref.ITFMaterials;
 import net.minecraft.item.Item;
 
-import static itfmod.repo.Names.NAME_ITEM_FOXY_SHOVEL;
+import static itfmod.ref.Names.NAME_ITEM_FOXY_SHOVEL;
 
+/**
+ * Enhanced version: {@link ItemFoxyShovelEnhanced}
+ */
 public class ItemFoxyShovel extends ITFItemShovel implements Enhanceable
 {
 	public ItemFoxyShovel()

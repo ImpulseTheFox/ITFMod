@@ -1,15 +1,14 @@
 package itfmod.itf.item;
 
-import itfmod.itf.Enhanceable;
 import itfmod.itf.ITFItemPickaxe;
-import itfmod.repo.ITFItems;
-import itfmod.repo.ITFMaterials;
-import net.minecraft.item.Item;
+import itfmod.ref.ITFMaterials;
 import net.minecraft.item.ItemStack;
 
-import static itfmod.repo.Names.NAME_ITEM_FOXY_PICKAXE;
-import static itfmod.repo.Names.NAME_ITEM_FOXY_PICKAXE_ENHANCED;
+import static itfmod.ref.Names.NAME_ITEM_FOXY_PICKAXE_ENHANCED;
 
+/**
+ * Enhanced version of {@link ItemFoxyPickaxe}
+ */
 public class ItemFoxyPickaxeEnhanced extends ITFItemPickaxe
 {
 	public ItemFoxyPickaxeEnhanced()

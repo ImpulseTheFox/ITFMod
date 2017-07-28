@@ -1,13 +1,15 @@
 package itfmod.itf.item;
 
 import itfmod.itf.ITFItemArmor;
-import itfmod.repo.ITFMaterials;
+import itfmod.ref.ITFMaterials;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 
-import static itfmod.repo.Names.NAME_ITEM_FOXY_BOOTS;
-import static itfmod.repo.Names.NAME_ITEM_FOXY_BOOTS_ENHANCED;
+import static itfmod.ref.Names.NAME_ITEM_FOXY_BOOTS_ENHANCED;
 
+/**
+ * Enhanced version of {@link ItemFoxyBoots}
+ */
 public class ItemFoxyBootsEnhanced extends ITFItemArmor
 {
 	public ItemFoxyBootsEnhanced()

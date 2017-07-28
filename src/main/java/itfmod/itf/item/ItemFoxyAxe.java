@@ -1,16 +1,17 @@
 package itfmod.itf.item;
 
 import itfmod.itf.Enhanceable;
-import itfmod.itf.ITFItem;
 import itfmod.itf.ITFItemAxe;
-import itfmod.repo.ITFCreativeTabs;
-import itfmod.repo.ITFItems;
-import itfmod.repo.ITFMaterials;
+import itfmod.ref.ITFCreativeTabs;
+import itfmod.ref.ITFItems;
+import itfmod.ref.ITFMaterials;
 import net.minecraft.item.Item;
 
-import static itfmod.repo.Names.NAME_ITEM_FOXY_AXE;
-import static itfmod.repo.Names.NAME_ITEM_FOXY_AXE_ENHANCED;
+import static itfmod.ref.Names.NAME_ITEM_FOXY_AXE_ENHANCED;
 
+/**
+ * Enhanced version: {@link ItemFoxyAxeEnhanced}
+ */
 public class ItemFoxyAxe extends ITFItemAxe implements Enhanceable
 {
 	public ItemFoxyAxe()

@@ -1,4 +1,4 @@
-package itfmod.repo;
+package itfmod.ref;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -7,6 +7,9 @@ import itfmod.SimpleRegistry;
 import itfmod.itf.item.*;
 import net.minecraft.item.Item;
 
+/**
+ * Class to store Items
+ */
 public class ITFItems
 {
 	public static final Item FOXY_AXE = new ItemFoxyAxe();
