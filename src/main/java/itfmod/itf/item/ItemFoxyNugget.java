@@ -3,12 +3,13 @@ package itfmod.itf.item;
 import itfmod.itf.ITFItem;
 import itfmod.repo.ITFCreativeTabs;
 
+import static itfmod.repo.Names.NAME_ITEM_FOXY_NUGGET;
+
 public class ItemFoxyNugget extends ITFItem
 {
 	public ItemFoxyNugget()
 	{
-		super("foxy_nugget");
-		this.setCreativeTab(ITFCreativeTabs.CREATIVE_TAB_ITF_MOD);
+		super(NAME_ITEM_FOXY_NUGGET);
 	}
 	
 	@Override

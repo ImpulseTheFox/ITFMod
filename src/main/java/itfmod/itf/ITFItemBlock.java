@@ -1,5 +1,6 @@
 package itfmod.itf;
 
+import itfmod.repo.ITFCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 
@@ -13,6 +14,7 @@ public class ITFItemBlock extends ItemBlock implements OrderedItem
 		this.setRegistryName(block.getRegistryName().toString());
 		this.setUnlocalizedName(this.getRegistryName().toString());
 		this.orderId = ((OrderedItem) block).getOrderId();
+		this.setCreativeTab(ITFCreativeTabs.CREATIVE_TAB_ITF_MOD);
 	}
 	
 	@Override

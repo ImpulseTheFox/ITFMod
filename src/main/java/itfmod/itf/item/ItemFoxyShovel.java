@@ -1,20 +1,30 @@
 package itfmod.itf.item;
 
+import itfmod.itf.Enhanceable;
 import itfmod.itf.ITFItemShovel;
 import itfmod.repo.ITFCreativeTabs;
+import itfmod.repo.ITFItems;
 import itfmod.repo.ITFMaterials;
+import net.minecraft.item.Item;
 
-public class ItemFoxyShovel extends ITFItemShovel
+import static itfmod.repo.Names.NAME_ITEM_FOXY_SHOVEL;
+
+public class ItemFoxyShovel extends ITFItemShovel implements Enhanceable
 {
 	public ItemFoxyShovel()
 	{
-		super("foxy_shovel", ITFMaterials.FOXY_MATERIAL);
-		this.setCreativeTab(ITFCreativeTabs.CREATIVE_TAB_ITF_MOD);
+		super(NAME_ITEM_FOXY_SHOVEL, ITFMaterials.FOXY_MATERIAL);
 	}
 	
 	@Override
 	public int getOrderId()
 	{
-		return 1003;
+		return 1006;
+	}
+	
+	@Override
+	public Item getEnhancedItem()
+	{
+		return ITFItems.FOXY_SHOVEL_ENHANCED;
 	}
 }

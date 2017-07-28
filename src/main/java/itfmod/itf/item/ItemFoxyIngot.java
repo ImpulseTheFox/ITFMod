@@ -3,12 +3,13 @@ package itfmod.itf.item;
 import itfmod.itf.ITFItem;
 import itfmod.repo.ITFCreativeTabs;
 
+import static itfmod.repo.Names.NAME_ITEM_FOXY_INGOT;
+
 public class ItemFoxyIngot extends ITFItem
 {
 	public ItemFoxyIngot()
 	{
-		super("foxy_ingot");
-		this.setCreativeTab(ITFCreativeTabs.CREATIVE_TAB_ITF_MOD);
+		super(NAME_ITEM_FOXY_INGOT);
 	}
 	
 	@Override

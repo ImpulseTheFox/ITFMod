@@ -1,10 +1,13 @@
 package itfmod;
 
+import itfmod.event.EventEnhanceITFItem;
 import itfmod.repo.ITFBlocks;
 import itfmod.repo.ITFCreativeTabs;
 import itfmod.repo.ITFItems;
 import itfmod.repo.ITFRecipes;
 import itfmod.world.ITFWorldGen;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -32,5 +35,6 @@ public class ITFMod // MOD COLOR: #ff6600 ON GOLD
 		ITFBlocks.registerBlocks();
 		ITFCreativeTabs.finishTabs();
 		GameRegistry.registerWorldGenerator(new ITFWorldGen(), 3);
+		MinecraftForge.EVENT_BUS.register(new EventEnhanceITFItem());
 	}
 }

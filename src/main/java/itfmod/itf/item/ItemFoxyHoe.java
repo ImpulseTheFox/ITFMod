@@ -1,20 +1,30 @@
 package itfmod.itf.item;
 
+import itfmod.itf.Enhanceable;
 import itfmod.itf.ITFItemHoe;
 import itfmod.repo.ITFCreativeTabs;
+import itfmod.repo.ITFItems;
 import itfmod.repo.ITFMaterials;
+import net.minecraft.item.Item;
 
-public class ItemFoxyHoe extends ITFItemHoe
+import static itfmod.repo.Names.NAME_ITEM_FOXY_HOE;
+
+public class ItemFoxyHoe extends ITFItemHoe implements Enhanceable
 {
 	public ItemFoxyHoe()
 	{
-		super("foxy_hoe", ITFMaterials.FOXY_MATERIAL);
-		this.setCreativeTab(ITFCreativeTabs.CREATIVE_TAB_ITF_MOD);
+		super(NAME_ITEM_FOXY_HOE, ITFMaterials.FOXY_MATERIAL);
 	}
 	
 	@Override
 	public int getOrderId()
 	{
-		return 1004;
+		return 1008;
+	}
+	
+	@Override
+	public Item getEnhancedItem()
+	{
+		return ITFItems.FOXY_HOE_ENHANCED;
 	}
 }

@@ -4,14 +4,15 @@ import itfmod.itf.ITFBlock;
 import itfmod.repo.ITFCreativeTabs;
 import net.minecraft.block.material.Material;
 
+import static itfmod.repo.Names.NAME_BLOCK_FOXY_BLOCK;
+
 public class BlockFoxyBlock extends ITFBlock
 {
 	public BlockFoxyBlock()
 	{
-		super("foxy_block", Material.ROCK);
+		super(NAME_BLOCK_FOXY_BLOCK, Material.ROCK);
 		this.setHardness(3F);
 		this.setHarvestLevel("pickaxe", 1);
-		this.setCreativeTab(ITFCreativeTabs.CREATIVE_TAB_ITF_MOD);
 	}
 	
 	@Override

@@ -1,21 +1,31 @@
 package itfmod.itf.item;
 
+import itfmod.itf.Enhanceable;
 import itfmod.itf.ITFItemArmor;
 import itfmod.repo.ITFCreativeTabs;
+import itfmod.repo.ITFItems;
 import itfmod.repo.ITFMaterials;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 
-public class ItemFoxyBoots extends ITFItemArmor
+import static itfmod.repo.Names.NAME_ITEM_FOXY_BOOTS;
+
+public class ItemFoxyBoots extends ITFItemArmor implements Enhanceable
 {
 	public ItemFoxyBoots()
 	{
-		super("foxy_boots", ITFMaterials.FOXY_MATERIAL_ARMOR, 4, EntityEquipmentSlot.FEET);
-		this.setCreativeTab(ITFCreativeTabs.CREATIVE_TAB_ITF_MOD);
+		super(NAME_ITEM_FOXY_BOOTS, ITFMaterials.FOXY_MATERIAL_ARMOR, 4, EntityEquipmentSlot.FEET);
 	}
 	
 	@Override
 	public int getOrderId()
 	{
-		return 2003;
+		return 2006;
+	}
+	
+	@Override
+	public Item getEnhancedItem()
+	{
+		return ITFItems.FOXY_BOOTS_ENHANCED;
 	}
 }
