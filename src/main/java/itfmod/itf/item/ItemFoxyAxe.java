@@ -7,6 +7,7 @@ import itfmod.ref.ITFItems;
 import itfmod.ref.ITFMaterials;
 import net.minecraft.item.Item;
 
+import static itfmod.ref.Names.NAME_ITEM_FOXY_AXE;
 import static itfmod.ref.Names.NAME_ITEM_FOXY_AXE_ENHANCED;
 
 /**
@@ -16,7 +17,7 @@ public class ItemFoxyAxe extends ITFItemAxe implements Enhanceable
 {
 	public ItemFoxyAxe()
 	{
-		super(NAME_ITEM_FOXY_AXE_ENHANCED, ITFMaterials.FOXY_MATERIAL_ENHANCED, ITFMaterials.FOXY_MATERIAL_ENHANCED.getDamageVsEntity(), 0.0F);
+		super(NAME_ITEM_FOXY_AXE, ITFMaterials.FOXY_MATERIAL, ITFMaterials.FOXY_MATERIAL.getDamageVsEntity(), 0.0F);
 		this.setCreativeTab(ITFCreativeTabs.CREATIVE_TAB_ITF_MOD);
 	}
 	
