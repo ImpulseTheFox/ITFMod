@@ -24,31 +24,28 @@ public class StructureEnhancementAltar extends ITFStructure
 					{
 						//Middle
 						blockStates[x][y][z] = Blocks.JUNGLE_STAIRS.getDefaultState().withRotation(Rotation.CLOCKWISE_90);
-						continue;
 					}
 					else if (x == 2)
 					{
 						blockStates[x][y][z] = Blocks.JUNGLE_STAIRS.getDefaultState().withRotation(Rotation.COUNTERCLOCKWISE_90);
-						continue;
 					}
 					else if (z == 0)
 					{
 						blockStates[x][y][z] = Blocks.JUNGLE_STAIRS.getDefaultState().withRotation(Rotation.CLOCKWISE_180);
-						continue;
 					}
 					else if (z == 2)
 					{
 						blockStates[x][y][z] = Blocks.JUNGLE_STAIRS.getDefaultState();
-						continue;
 					}
 					else if (x == 1 && z == 1)
 					{
 						blockStates[x][y][z] = ITFBlocks.FOXY_BLOCK.getDefaultState(); //TODO Foxy Altar Block (function, texture)
-						continue;
 					}
-					
-					//Fill the rest
-					blockStates[x][y][z] = Blocks.AIR.getDefaultState();
+					else
+					{
+						//Fill the rest
+						blockStates[x][y][z] = Blocks.AIR.getDefaultState();						
+					}
 				}
 			}
 		}
