@@ -15,17 +15,28 @@
 hs_err_pid*
 
 #Eclipse
-/eclipse/
-/.settings/
-/bin/
+eclipse
+.settings
+bin
+*.launch
+.metadata
+.classpath
+.project
+
+#IDEA
+out
+*.ipr
+*.iws
+*.iml
+.idea
 
 #Minecraft
-/run/
+run
 
 #Gradle
 .gradle
 .gradletasknamecache
 gradle-app.setting
 *.properties
-/build/
+build
 !gradle/wrapper/gradle-wrapper.jar

@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "itfmod:foxy_block"
+        }
+    ],
+    "result": {
+        "item": "itfmod:foxy_ingot",
+        "count": 9
+    }
+}
