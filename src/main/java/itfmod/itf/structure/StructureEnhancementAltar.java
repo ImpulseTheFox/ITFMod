@@ -39,7 +39,7 @@ public class StructureEnhancementAltar extends ITFStructure
 					}
 					else if (x == 1 && z == 1)
 					{
-						blockStates[x][y][z] = ITFBlocks.FOXY_BLOCK.getDefaultState(); //TODO Foxy Altar Block (function, texture)
+						blockStates[x][y][z] = ITFBlocks.FOXY_ALTAR.getDefaultState(); //TODO Foxy Altar Block function
 					}
 					else
 					{

@@ -11,4 +11,5 @@ item.itfmod:foxy_shovel.name=Foxy Shovel
 item.itfmod:foxy_sword.name=Foxy Sword
 tile.itfmod:foxy_block.name=Foxy Block
 tile.itfmod:foxy_ore.name=Foxy Ore
+tile.itfmod:foxy_altar.name=Foxy Altar
 itemGroup.itfmod=ITF Mod
