@@ -12,7 +12,7 @@ public class StructureEnhancementAltar extends ITFStructure
 	
 	public StructureEnhancementAltar()
 	{
-		int y = 0;
+		int y = 0; //For performance
 		
 		for (int x = 0; x < 3; x++)
 		{
@@ -20,9 +20,9 @@ public class StructureEnhancementAltar extends ITFStructure
 			{
 				for (int z = 0; z < 3; z++)
 				{
-					//Middle
 					if (x == 0)
 					{
+						//Middle
 						blockStates[x][y][z] = Blocks.JUNGLE_STAIRS.getDefaultState().withRotation(Rotation.CLOCKWISE_90);
 						continue;
 					}
