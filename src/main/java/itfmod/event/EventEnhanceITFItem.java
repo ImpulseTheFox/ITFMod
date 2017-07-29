@@ -27,6 +27,10 @@ public class EventEnhanceITFItem
 		
 		new Thread(() ->
 		{
+			String name = ent.getName();
+			final String PREFIX = "item.item." + ITFMod.MODID + ':';
+			if (!name.startsWith(PREFIX)) return; //return if dropped item is not from this mod
+			
 			while(!ent.isCollidedVertically)
 			{
 				try
@@ -39,27 +43,24 @@ public class EventEnhanceITFItem
 				}
 			}
 			
-			//After Item has landed
-			
-			String name = ent.getName();
-			final String PREFIX = "item.item." + ITFMod.MODID + ':';
-			if (!name.startsWith(PREFIX)) return; //return if dropped item is not from this mod
+			//After item has landed
 			
 			World world = ent.getEntityWorld();
-			BlockPos pos = new BlockPos(ent.posX, ent.posY - 1, ent.posZ);
-			IBlockState blockUnder = world.getBlockState(pos);
+			BlockPos posUnder = new BlockPos(ent.posX, ent.posY - 1, ent.posZ);
+			IBlockState blockUnder = world.getBlockState(posUnder);
 			if (!(blockUnder.getBlock() instanceof BlockFoxyAltar)) return; //return if dropped item is not on an altar
 			
 			Item item = ent.getItem().getItem();
-			if (item instanceof Enhanceable)
-			{
-				Enhanceable eItem = (Enhanceable) item;
-				
-				ent.setDead(); //kill old item
-				world.spawnEntity(new EntityLightningBolt(world, pos.getX(), pos.getY(), pos.getZ(), true)); //spawn lightning
-				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(eItem.getEnhancedItem()))); //spawn enhanced item
-				world.setBlockState(pos, ITFBlocks.FOXY_ALTAR_DISABLED.getDefaultState()); //disable altar
-			}
+			if (!(item instanceof Enhanceable)) return; //return if dropped item is not enhanceable
+			
+			Enhanceable eItem = (Enhanceable) item;
+			BlockPos pos = new BlockPos(ent.posX, ent.posY, ent.posZ);
+			
+			ent.setDead(); //kill old item
+			world.spawnEntity(new EntityLightningBolt(world, pos.getX(), pos.getY(), pos.getZ(), true)); //spawn lightning effect
+			world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(eItem.getEnhancedItem()))); //spawn enhanced item
+			world.setBlockState(posUnder, ITFBlocks.FOXY_ALTAR_DISABLED.getDefaultState()); //disable altar
+			
 		}).start();
 	}
 }
