@@ -50,15 +50,18 @@ public class EventEnhanceITFItem
 			IBlockState blockUnder = world.getBlockState(posUnder);
 			if (!(blockUnder.getBlock() instanceof BlockFoxyAltar)) return; //return if dropped item is not on an altar
 			
-			Item item = ent.getItem().getItem();
+			ItemStack itemStack = ent.getItem();
+			Item item = itemStack.getItem();
 			if (!(item instanceof Enhanceable)) return; //return if dropped item is not enhanceable
 			
 			Enhanceable eItem = (Enhanceable) item;
 			BlockPos pos = new BlockPos(ent.posX, ent.posY, ent.posZ);
 			
+			ItemStack newItemStack = new ItemStack(eItem.getEnhancedItem()); //create new ItemStack
+			
 			ent.setDead(); //kill old item
 			world.spawnEntity(new EntityLightningBolt(world, pos.getX(), pos.getY(), pos.getZ(), true)); //spawn lightning effect
-			world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(eItem.getEnhancedItem()))); //spawn enhanced item
+			world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), newItemStack)); //spawn enhanced item
 			world.setBlockState(posUnder, ITFBlocks.FOXY_ALTAR_DISABLED.getDefaultState()); //disable altar
 			
 		}).start();
