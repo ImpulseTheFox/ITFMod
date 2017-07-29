@@ -5,6 +5,7 @@ import itfmod.ref.ITFBlocks;
 import itfmod.ref.ITFCreativeTabs;
 import itfmod.ref.ITFItems;
 import itfmod.world.ITFWorldGen;
+import mezz.jei.api.IModRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
