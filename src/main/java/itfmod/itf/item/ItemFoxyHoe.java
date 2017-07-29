@@ -11,7 +11,7 @@ import static itfmod.ref.Names.NAME_ITEM_FOXY_HOE;
 /**
  * Enhanced version: {@link ItemFoxyHoeEnhanced}
  */
-public class ItemFoxyHoe extends ITFItemHoe implements Enhanceable
+public class ItemFoxyHoe extends ITFItemHoe
 {
 	public ItemFoxyHoe()
 	{
@@ -22,11 +22,5 @@ public class ItemFoxyHoe extends ITFItemHoe implements Enhanceable
 	public int getOrderId()
 	{
 		return 1008;
-	}
-	
-	@Override
-	public Item getEnhancedItem()
-	{
-		return ITFItems.FOXY_HOE_ENHANCED;
 	}
 }
