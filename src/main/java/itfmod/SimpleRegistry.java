@@ -50,7 +50,7 @@ public class SimpleRegistry
 				{
 					ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 				}
-				catch (NoClassDefFoundError e) //temporary solution
+				catch (NoClassDefFoundError e) //"temporary" solution
 				{
 					//will throw error/exception if on server, ignoring
 				}
