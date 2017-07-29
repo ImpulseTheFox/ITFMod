@@ -76,7 +76,7 @@ public class ITFWorldGen implements IWorldGenerator
 	private void generateOverworld(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
 		// Generate FOXY_ORE
-		this.generateOre(ITFBlocks.FOXY_ORE.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 12, 44, 4 + random.nextInt(5), 4);
+		this.generateOre(ITFBlocks.FOXY_ORE.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 12, 32, 4 + random.nextInt(5), 2);
 		// Generate Structure
 		this.generateStructure(ITFStructures.ENHANCEMENT_ALTAR, world, random, chunkX * 16, chunkZ * 16, 300);
 	}
