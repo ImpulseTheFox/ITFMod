@@ -26,7 +26,6 @@ public class ITFJEIPlugin implements IModPlugin
 		registry.addIngredientInfo(new ItemStack(ITFItems.FOXY_AXE_ENHANCED), ItemStack.class, ENHANCED_DESC);
 		registry.addIngredientInfo(new ItemStack(ITFItems.FOXY_SWORD_ENHANCED), ItemStack.class, ENHANCED_DESC);
 		registry.addIngredientInfo(new ItemStack(ITFItems.FOXY_SHOVEL_ENHANCED), ItemStack.class, ENHANCED_DESC);
-		registry.addIngredientInfo(new ItemStack(ITFItems.FOXY_HOE_ENHANCED), ItemStack.class, ENHANCED_DESC);
 		registry.addIngredientInfo(new ItemStack(ITFItems.FOXY_HELMET_ENHANCED), ItemStack.class, ENHANCED_DESC);
 		registry.addIngredientInfo(new ItemStack(ITFItems.FOXY_CHESTPLATE_ENHANCED), ItemStack.class, ENHANCED_DESC);
 		registry.addIngredientInfo(new ItemStack(ITFItems.FOXY_LEGGINGS_ENHANCED), ItemStack.class, ENHANCED_DESC);

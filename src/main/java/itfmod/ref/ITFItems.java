@@ -15,7 +15,6 @@ public class ITFItems
 	public static final Item FOXY_AXE = new ItemFoxyAxe();
 	public static final Item FOXY_AXE_ENHANCED = new ItemFoxyAxeEnhanced();
 	public static final Item FOXY_HOE = new ItemFoxyHoe();
-	public static final Item FOXY_HOE_ENHANCED = new ItemFoxyHoeEnhanced();
 	public static final Item FOXY_INGOT = new ItemFoxyIngot();
 	public static final Item FOXY_PICKAXE = new ItemFoxyPickaxe();
 	public static final Item FOXY_PICKAXE_ENHANCED = new ItemFoxyPickaxeEnhanced();
@@ -40,7 +39,6 @@ public class ITFItems
 		ITFItems.items.add(ITFItems.FOXY_AXE);
 		ITFItems.items.add(ITFItems.FOXY_AXE_ENHANCED);
 		ITFItems.items.add(ITFItems.FOXY_HOE);
-		ITFItems.items.add(ITFItems.FOXY_HOE_ENHANCED);
 		ITFItems.items.add(ITFItems.FOXY_INGOT);
 		ITFItems.items.add(ITFItems.FOXY_PICKAXE);
 		ITFItems.items.add(ITFItems.FOXY_PICKAXE_ENHANCED);
