@@ -2,6 +2,7 @@ package itfmod.itf.structure;
 
 import itfmod.itf.ITFStructure;
 import itfmod.ref.ITFBlocks;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.Rotation;
@@ -15,43 +16,15 @@ public class StructureEnhancementAltar extends ITFStructure
 	
 	public StructureEnhancementAltar()
 	{
-		int y = 0; //For performance
+		final IBlockState ALTAR = ITFBlocks.FOXY_ALTAR.getDefaultState();
+		final IBlockState ROT0 = Blocks.JUNGLE_STAIRS.getDefaultState();
+		final IBlockState ROT90 = Blocks.JUNGLE_STAIRS.getDefaultState().withRotation(Rotation.CLOCKWISE_90);
+		final IBlockState ROT180 = Blocks.JUNGLE_STAIRS.getDefaultState().withRotation(Rotation.CLOCKWISE_180);
+		final IBlockState ROT270 = Blocks.JUNGLE_STAIRS.getDefaultState().withRotation(Rotation.COUNTERCLOCKWISE_90);
 		
-		for (int x = 0; x < 3; x++)
-		{
-			//Y = 0
-			{
-				for (int z = 0; z < 3; z++)
-				{
-					if (x == 0)
-					{
-						//Middle
-						blockStates[x][y][z] = Blocks.JUNGLE_STAIRS.getDefaultState().withRotation(Rotation.CLOCKWISE_90);
-					}
-					else if (x == 2)
-					{
-						blockStates[x][y][z] = Blocks.JUNGLE_STAIRS.getDefaultState().withRotation(Rotation.COUNTERCLOCKWISE_90);
-					}
-					else if (z == 0)
-					{
-						blockStates[x][y][z] = Blocks.JUNGLE_STAIRS.getDefaultState().withRotation(Rotation.CLOCKWISE_180);
-					}
-					else if (z == 2)
-					{
-						blockStates[x][y][z] = Blocks.JUNGLE_STAIRS.getDefaultState();
-					}
-					else if (x == 1 && z == 1)
-					{
-						blockStates[x][y][z] = ITFBlocks.FOXY_ALTAR.getDefaultState(); //TODO Foxy Altar Block function
-					}
-					else
-					{
-						//Fill the rest
-						blockStates[x][y][z] = Blocks.AIR.getDefaultState();						
-					}
-				}
-			}
-		}
+		blockStates[0][0][0] = ROT180; 	blockStates[1][0][0] = ROT180; 	blockStates[2][0][0] = ROT270;
+		blockStates[0][0][1] = ROT90; 	blockStates[1][0][1] = ALTAR; 	blockStates[2][0][1] = ROT270;
+		blockStates[0][0][2] = ROT90; 	blockStates[1][0][2] = ROT0; 	blockStates[2][0][2] = ROT0;
 	}
 	
 	@Override
