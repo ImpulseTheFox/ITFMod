@@ -44,7 +44,7 @@ public class KeyValue<K, V>
 		if (this == obj) return true;
 		if (obj == null) return false;
 		if (getClass() != obj.getClass()) return false;
-		KeyValue other = (KeyValue) obj;
+		KeyValue<?, ?> other = (KeyValue<?, ?>) obj;
 		if (key == null)
 		{
 			if (other.key != null) return false;
