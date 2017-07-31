@@ -2,6 +2,11 @@ package itfmod.world;
 
 public class ReachedBadLevelException extends Exception
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ReachedBadLevelException()
 	{
 		super();

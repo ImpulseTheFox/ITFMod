@@ -2,6 +2,11 @@ package itfmod.world;
 
 public class ObstacledStructureException extends Exception
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ObstacledStructureException()
 	{
 		super();
