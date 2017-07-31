@@ -2,7 +2,6 @@ package itfmod;
 
 import java.util.HashSet;
 import java.util.Set;
-import itfmod.itf.ITFItemBlock;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -30,7 +29,6 @@ public class SimpleRegistry
 			for (Block block : SimpleRegistry.blocks)
 			{
 				reg.register(block);
-				SimpleRegistry.registerItem(new ITFItemBlock(block)); //Automatically create an ItemBlock and register it
 			}
 		}
 		
@@ -43,17 +41,18 @@ public class SimpleRegistry
 			{
 				reg.register(item);
 				
-				try
+				if (loadModels)
 				{
-					ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-				}
-				catch (NoClassDefFoundError e) //"temporary" solution
-				{
-					//will throw error/exception if on server, ignoring
+					registerItemModel(item);
 				}
 			}
 		}
 	}
+	
+	/**
+	 * If item models should be loaded
+	 */
+	private static boolean loadModels = false;
 	
 	private static Set<Item> items = new HashSet<>();
 	
@@ -87,5 +86,30 @@ public class SimpleRegistry
 	public static void setItems(Set<Item> items)
 	{
 		SimpleRegistry.items = items;
+	}
+	
+	public static void registerItemModel(Item item)
+	{
+		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+	}
+	
+	/**
+	 * Returns if item models should be loaded.
+	 * 
+	 * @return if item models should be loaded
+	 */
+	public static boolean isLoadModels()
+	{
+		return loadModels;
+	}
+
+	/**
+	 * Should be true only and only when current side is a client
+	 * 
+	 * @param loadModels if item models should be loaded
+	 */
+	public static void setLoadModels(boolean loadModels)
+	{
+		SimpleRegistry.loadModels = loadModels;
 	}
 }

@@ -59,7 +59,7 @@ public class ITFItems
 	
 	public static void registerItems()
 	{
-		SimpleRegistry.setItems(ITFItems.items);
+		SimpleRegistry.getItems().addAll(ITFItems.items);
 	}
 	public static Set<Item> getItems() { return items; }
 }

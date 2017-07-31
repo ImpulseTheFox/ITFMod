@@ -1,17 +1,12 @@
 package itfmod;
 
-import itfmod.event.EventEnhanceITFItem;
-import itfmod.ref.ITFBlocks;
-import itfmod.ref.ITFCreativeTabs;
-import itfmod.ref.ITFItems;
-import itfmod.world.ITFWorldGen;
-import mezz.jei.api.IModRegistry;
-import net.minecraftforge.common.MinecraftForge;
+import itfmod.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
  * Main class of the ITFMod
@@ -24,19 +19,24 @@ public class ITFMod // MOD COLOR: #ff6600 ON GOLD
 	public static final String MCVERSIONS = "1.12";
 	public static final String NAME = "ITF Mod";
 	
-	@EventHandler
-	public void init(FMLInitializationEvent event)
-	{
-		Recipes.registerRecipes();
-	}
+	@SidedProxy(modId = ITFMod.MODID, clientSide = "itfmod.proxy.ClientProxy", serverSide = "itfmod.proxy.ServerProxy")
+	public static CommonProxy proxy;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		ITFItems.registerItems();
-		ITFBlocks.registerBlocks();
-		ITFCreativeTabs.finishTabs();
-		GameRegistry.registerWorldGenerator(new ITFWorldGen(), 3);
-		MinecraftForge.EVENT_BUS.register(new EventEnhanceITFItem());
+		proxy.preInit(event);
+	}
+	
+	@EventHandler
+	public void init(FMLInitializationEvent event)
+	{
+		proxy.init(event);
+	}
+	
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent event)
+	{
+		proxy.postInit(event);
 	}
 }
