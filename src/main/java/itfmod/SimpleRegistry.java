@@ -2,6 +2,7 @@ package itfmod;
 
 import java.util.HashSet;
 import java.util.Set;
+import itfmod.ref.SideInfo;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -41,18 +42,13 @@ public class SimpleRegistry
 			{
 				reg.register(item);
 				
-				if (loadModels)
+				if (SideInfo.isSideClient())
 				{
 					registerItemModel(item);
 				}
 			}
 		}
 	}
-	
-	/**
-	 * If item models should be loaded
-	 */
-	private static boolean loadModels = false;
 	
 	private static Set<Item> items = new HashSet<>();
 	
@@ -91,25 +87,5 @@ public class SimpleRegistry
 	public static void registerItemModel(Item item)
 	{
 		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-	}
-	
-	/**
-	 * Returns if item models should be loaded.
-	 * 
-	 * @return if item models should be loaded
-	 */
-	public static boolean isLoadModels()
-	{
-		return loadModels;
-	}
-
-	/**
-	 * Should be true only and only when current side is a client
-	 * 
-	 * @param loadModels if item models should be loaded
-	 */
-	public static void setLoadModels(boolean loadModels)
-	{
-		SimpleRegistry.loadModels = loadModels;
 	}
 }

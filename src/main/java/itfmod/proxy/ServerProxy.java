@@ -1,6 +1,6 @@
 package itfmod.proxy;
 
-import itfmod.SimpleRegistry;
+import itfmod.ref.SideInfo;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -10,7 +10,7 @@ public class ServerProxy extends CommonProxy
 	@Override
     public void preInit(FMLPreInitializationEvent event)
     {
-		SimpleRegistry.setLoadModels(false);
+		SideInfo.setSideClient(false);
 		super.preInit(event);
     }
 
