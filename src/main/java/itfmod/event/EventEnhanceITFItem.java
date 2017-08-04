@@ -59,6 +59,8 @@ public class EventEnhanceITFItem
 			
 			ItemStack newItemStack = new ItemStack(eItem.getEnhancedItem()); //create new ItemStack
 			
+			//TODO copy previous enchantments and NBT tags
+			
 			ent.setDead(); //kill old item
 			world.spawnEntity(new EntityLightningBolt(world, pos.getX(), pos.getY(), pos.getZ(), true)); //spawn lightning effect
 			world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), newItemStack)); //spawn enhanced item
